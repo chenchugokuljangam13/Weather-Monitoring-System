@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/css/styles.css' %}">
+    <title>Weather Monitoring System</title>
+</head>
+<body>
+    <h1>Weather Monitoring System</h1>
+
+    <h2>Weather Data</h2>
+    <form method="POST" action="{% url 'get_weather_by_date' %}">
+        {% csrf_token %}
+        <label for="date">Enter Date (YYYY-MM-DD):</label>
+        <input type="date" id="date" name="date" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <h3>Historical Weather Data</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Date</th>
+                <th>Average Temp (°C)</th>
+                <th>Max Temp (°C)</th>
+                <th>Min Temp (°C)</th>
+                <th>Dominant Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in weather_data %}
+            <tr>
+                <td>{{ data.city }}</td>
+                <td>{{ data.date }}</td>
+                <td>{{ data.avg_temp }}</td>
+                <td>{{ data.max_temp }}</td>
+                <td>{{ data.min_temp }}</td>
+                <td>{{ data.dominant_condition }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No historical weather data available for the selected date.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Current Weather Data (if no historical data found)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Date</th>
+                <th>Average Temp (°C)</th>
+                <th>Max Temp (°C)</th>
+                <th>Min Temp (°C)</th>
+                <th>Dominant Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in current_weather %}
+            <tr>
+                <td>{{ data.city }}</td>
+                <td>{{ data.date }}</td>
+                <td>{{ data.avg_temp }}</td>
+                <td>{{ data.max_temp }}</td>
+                <td>{{ data.min_temp }}</td>
+                <td>{{ data.dominant_condition }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No current weather data available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

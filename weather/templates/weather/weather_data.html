@@ -1,0 +1,31 @@
+<!-- weather/templates/weather/weather_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+</head>
+<body>
+    <h1>Daily Weather Aggregates</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <table>
+            <tr>
+                <th>Average Temp (°C)</th>
+                <th>Max Temp (°C)</th>
+                <th>Min Temp (°C)</th>
+                <th>Dominant Condition</th>
+            </tr>
+            <tr>
+                <td>{{ total_avg_temp }}</td>
+                <td>{{ total_max_temp }}</td>
+                <td>{{ total_min_temp }}</td>
+                <td>{{ dominant_condition }}</td>
+            </tr>
+        </table>
+    {% endif %}
+    <a href="{% url 'index' %}">Back</a>
+</body>
+</html>
