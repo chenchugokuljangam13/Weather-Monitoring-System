@@ -51,25 +51,25 @@ The **Weather Monitoring System** is a Django-based application designed to retr
 
 
 2. Install Dependencies
-- Install the required Python packages from requirements.txt:
+    - Install the required Python packages from requirements.txt:
 
-    ```bash
-    pip install -r requirements.txt
+        ```bash
+        pip install -r requirements.txt
 
 3. Set Up Environment Variables
-- Create a .env file in the project root:
-    ```bash
-    touch .env
-- Add your OpenWeatherMap API Key to the .env file:
-    ```bash
-    OPENWEATHER_API_KEY=your_api_key_here
-- Make sure settings.py in the WeatherMonitoring folder loads environment variables correctly using python-dotenv:
-    ```bash
-    import os
-    from dotenv import load_dotenv
+    - Create a .env file in the project root:
+        ```bash
+        touch .env
+    - Add your OpenWeatherMap API Key to the .env file:
+        ```bash
+        OPENWEATHER_API_KEY=your_api_key_here
+    - Make sure settings.py in the WeatherMonitoring folder loads environment variables correctly using python-dotenv:
+        ```bash
+        import os
+        from dotenv import load_dotenv
 
-    load_dotenv()
-    OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY')
+        load_dotenv()
+        OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY')
 
 4. Run Database Migrations
     ```bash
