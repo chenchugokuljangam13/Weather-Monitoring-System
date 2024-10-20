@@ -134,6 +134,8 @@ EMAIL_HOST_USER = 'your_email@example.com'
 EMAIL_HOST_PASSWORD = 'your_password'
 EMAIL_USE_TLS = True
 
+
+load_dotenv()
 OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY')
 
 print(OPENWEATHER_API_KEY)
