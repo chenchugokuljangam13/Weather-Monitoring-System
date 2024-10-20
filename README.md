@@ -11,17 +11,16 @@ The **Weather Monitoring System** is a Django-based application designed to retr
 - **Forecasting**: (Bonus) Supports weather forecasting features.
 
 ## Project Structure
-Here's a breakdown of the important files and folders in this project:
-
+- structure of the project
     ```graphql
-    /WEATHER_MONITORING
-    ├── /weather               # Django app for weather monitoring
-    │   ├── /migrations        # Database migrations
-    │   ├── /static            # Static files (CSS, JS, etc.)
-    │   │   └── /weather
+    WEATHER_MONITORING/
+    ├── weather/               # Django app for weather monitoring
+    │   ├── migrations        # Database migrations
+    │   ├── static/          # Static files (CSS, JS, etc.)
+    │   │   └── weather/
     │   │       └── styles.css # Stylesheet for the weather app
-    │   ├── /templates         # HTML templates
-    │   │   └── /weather
+    │   ├── templates/         # HTML templates
+    │   │   └── weather/
     │   │       ├── index.html          # Main page
     │   │       └── weather_data.html    # Page for displaying weather data
     │   ├── __init__.py       # Indicates this directory is a Python package
@@ -31,7 +30,7 @@ Here's a breakdown of the important files and folders in this project:
     │   ├── tests.py          # Tests for the app
     │   ├── urls.py           # URL routing for the app
     │   └── views.py          # Views for handling requests
-    ├── /weather_monitoring    # Main project directory
+    ├── weather_monitoring/   # Main project directory
     │   ├── __init__.py       # Indicates this directory is a Python package
     │   ├── asgi.py           # ASGI configuration for async support
     │   ├── settings.py       # Project settings
